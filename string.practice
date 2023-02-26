@@ -1,0 +1,74 @@
+public static string Does(string[] s, string t)
+        {
+            int empty = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (t.Equals(s[i]))
+                    return "There is same name";
+                else if (s[i] == "")
+                    empty = i;
+            }
+            if (empty != 0)
+            {
+                s[empty] = t;
+                return "The name added";
+            }
+            else
+                return "There is no place for these name...";
+        }
+        public static bool Reverse(string str)
+        {
+            string str1 = "";
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                str1 += str[i];
+            }
+            Console.WriteLine(str1);
+            if (str.Equals(str1))
+                return true;
+            else
+                return false;
+        }
+        public static void AbsContinue(string str)
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i + 1 < str.Length) {
+                    if ((str[i + 1] - str[i] == 1) && (str[i] >= 'a' && str[i] <= 'z') && (str[i + 1] >= 'a' && str[i + 1] <= 'z'))
+                        Console.WriteLine($"({str[i]}, {str[i + 1]})");
+                }
+            }
+        }
+        public static int SequenceCount(string str) {
+            int count = 1;
+            for (int i = 0; i < str.Length; i++) {
+                if (i + 1 < str.Length) {
+                    if (str[i] != str[i + 1])
+                        count++;
+                }
+            }
+            return count;
+        }
+        static void Main(string[] args)
+        {
+            //q1
+            string[] str = { "dani", "","shmulic", "victor", "","peter",""};
+                string str1 = " ";
+                do {
+                    Console.WriteLine("Enter a string: ");
+                    str1 = Console.ReadLine();
+                    Console.WriteLine(Does(str, str1));
+                } while (str1 != "");
+            //q2
+            string str2 = "alia";
+            bool do1 = Reverse(str2);
+            Console.WriteLine(do1);
+            //q3
+            string str3 = "%5cdaber&uv";
+            AbsContinue(str3);
+            //q4
+            string str4 = "aabcccaaacddddds";
+            int num = SequenceCount(str4);
+            Console.WriteLine(num);
+
+            Console.ReadLine();
